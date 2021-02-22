@@ -4,7 +4,7 @@ export class App extends Component {
   state = {
     hue: Math.floor(Math.random() * 255),
     saturation: Math.floor(Math.random() * 255),
-    light: Math.floor(Math.random() * 255),
+    light: Math.floor(Math.random() * 100),
   }
 
   handleOnChangeHue = event => {
@@ -19,6 +19,12 @@ export class App extends Component {
     this.setState({ light: event.target.value })
     console.log(this.state.light)
   }
+  // componentDidMount(event) {
+  //   let random = Math.floor(Math.random() * 255)
+  //   this.setState({ hue: event.target.random }),
+  //     this.setState({ saturation: event.target.random }),
+  //     this.setState({ light: event.target.random })
+  // }
 
   render() {
     return (
@@ -39,7 +45,7 @@ export class App extends Component {
             value={this.state.hue}
             onChange={this.handleOnChangeHue}
           />
-          <div className="hue">{this.state.hue}</div>
+          <div className="hue">Hue:{this.state.hue}</div>
           <input
             className="saturation-slider"
             type="range"
@@ -48,17 +54,18 @@ export class App extends Component {
             value={this.state.saturation}
             onChange={this.handleOnChangeSaturation}
           />
-          <div className="saturation">{this.state.saturation}</div>
+          <div className="saturation">Saturation:{this.state.saturation}</div>
           <input
             className="light-slider"
             type="range"
             min={0}
-            max={255}
+            max={100}
             value={this.state.light}
             onChange={this.handleOnChangeLight}
           />
-          <div className="light">{this.state.light}</div>
+          <div className="light">Light:{this.state.light}</div>
         </div>
+        <button onClick={this.componentDidMount}>Randomize</button>
       </div>
     )
   }
