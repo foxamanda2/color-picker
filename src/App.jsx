@@ -28,16 +28,10 @@ export class App extends Component {
   }
 
   render() {
+    document.body.style.backgroundColor = `hsl(${this.state.hue},${this.state.saturation}%,${this.state.light}%)`
     return (
       <div>
         <h1>Color Picker</h1>
-
-        <div
-          className="ColorBox"
-          style={{
-            backgroundColor: `hsl(${this.state.hue},${this.state.saturation}%,${this.state.light}%)`,
-          }}
-        ></div>
 
         <div>
           <input
