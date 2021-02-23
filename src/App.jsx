@@ -5,6 +5,7 @@ export class App extends Component {
     hue: Math.floor(Math.random() * 360),
     saturation: Math.floor(Math.random() * 100),
     light: Math.floor(Math.random() * 100),
+    alpha: Math.round(Math.random() * 1 * 100) / 100,
   }
 
   handleOnChangeHue = event => {
@@ -18,12 +19,16 @@ export class App extends Component {
   handleOnChangeLight = event => {
     this.setState({ light: event.target.value })
   }
+  handleOnChangeAlpha = event => {
+    this.setState({ alpha: event.target.value })
+  }
 
   handleRandom = () => {
     this.setState({
       hue: Math.floor(Math.random() * 360),
       saturation: Math.floor(Math.random() * 100),
       light: Math.floor(Math.random() * 100),
+      alpha: Math.round(Math.random() * 1 * 100) / 100,
     })
   }
 
@@ -57,15 +62,31 @@ export class App extends Component {
           <input
             className="light-slider"
             type="range"
-            min={0}
-            max={100}
+            min="0"
+            max="100"
             value={this.state.light}
             onChange={this.handleOnChangeLight}
           />
           <div className="light">Light:{this.state.light}</div>
-        </div>
 
-        <button onClick={this.handleRandom}>Randomize</button>
+          <input
+            className="alpha-slider"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={this.state.alpha}
+            onChange={this.handleOnChangeAlpha}
+          />
+          <div className="alpha">Alpha:{this.state.alpha}</div>
+          <footer>
+            hsla({this.state.hue}, {this.state.saturation}%, {this.state.light}
+            %, {this.state.alpha})
+          </footer>
+        </div>
+        <div>
+          <button onClick={this.handleRandom}>Randomize</button>
+        </div>
       </div>
     )
   }
