@@ -27,12 +27,14 @@ export class App extends Component {
     return (
       <div>
         <h1>Color Picker</h1>
+
         <div
           className="ColorBox"
           style={{
             backgroundColor: `hsl(${this.state.hue},${this.state.saturation}%,${this.state.light}%)`,
           }}
         ></div>
+
         <div>
           <input
             className="hue-slider"
@@ -43,6 +45,7 @@ export class App extends Component {
             onChange={this.handleOnChangeHue}
           />
           <div className="hue">Hue:{this.state.hue}</div>
+
           <input
             className="saturation-slider"
             type="range"
@@ -52,6 +55,7 @@ export class App extends Component {
             onChange={this.handleOnChangeSaturation}
           />
           <div className="saturation">Saturation:{this.state.saturation}</div>
+
           <input
             className="light-slider"
             type="range"
@@ -62,6 +66,7 @@ export class App extends Component {
           />
           <div className="light">Light:{this.state.light}</div>
         </div>
+
         <button onClick={this.handleOnClick}>Randomize</button>
       </div>
     )
