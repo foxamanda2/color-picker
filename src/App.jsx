@@ -19,8 +19,12 @@ export class App extends Component {
     this.setState({ light: event.target.value })
   }
 
-  handleOnClick() {
-    this.setState({ hue: Math.floor(Math.random() * 360) })
+  handleRandom = () => {
+    this.setState({
+      hue: Math.floor(Math.random() * 360),
+      saturation: Math.floor(Math.random() * 100),
+      light: Math.floor(Math.random() * 100),
+    })
   }
 
   render() {
@@ -39,8 +43,8 @@ export class App extends Component {
           <input
             className="hue-slider"
             type="range"
-            min={0}
-            max={360}
+            min="0"
+            max="360"
             value={this.state.hue}
             onChange={this.handleOnChangeHue}
           />
@@ -49,8 +53,8 @@ export class App extends Component {
           <input
             className="saturation-slider"
             type="range"
-            min={0}
-            max={100}
+            min="0"
+            max="100"
             value={this.state.saturation}
             onChange={this.handleOnChangeSaturation}
           />
@@ -67,7 +71,7 @@ export class App extends Component {
           <div className="light">Light:{this.state.light}</div>
         </div>
 
-        <button onClick={this.handleOnClick}>Randomize</button>
+        <button onClick={this.handleRandom}>Randomize</button>
       </div>
     )
   }
