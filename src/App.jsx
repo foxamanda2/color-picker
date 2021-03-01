@@ -33,7 +33,7 @@ export class App extends Component {
   }
 
   render() {
-    document.body.style.backgroundColor = `hsl(${this.state.hue},${this.state.saturation}%,${this.state.light}%)`
+    document.body.style.backgroundColor = `hsl(${this.state.hue},${this.state.saturation}%,${this.state.light}%,${this.state.alpha})`
     return (
       <div>
         <h1>Color Picker</h1>
